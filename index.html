@@ -1,0 +1,1901 @@
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solicitudes · Comercial Aurora</title>
+    <style>
+      :root {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: #172921;
+        background: #f3f7f4;
+        --muted: #51655b;
+        --green: #10624a;
+        --line: #dae6de;
+        --dark: #102f24;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button,
+      select {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid #389b74;
+        outline-offset: 2px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 224px minmax(0, 1fr);
+      }
+      aside {
+        background: var(--dark);
+        color: #fff;
+        padding: 28px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 750;
+        letter-spacing: -0.025em;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        background: #bce9d1;
+        color: var(--dark);
+        border-radius: 10px;
+        width: 39px;
+        height: 39px;
+        flex: none;
+        font-size: 26px;
+      }
+      .brand small,
+      aside p {
+        display: block;
+        color: #bdd3c8;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+      nav {
+        display: grid;
+        gap: 6px;
+      }
+      nav a,
+      nav button {
+        padding: 10px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: none;
+        color: #e2eee8;
+        text-align: left;
+        text-decoration: none;
+        font-size: 14px;
+        min-height: 40px;
+      }
+      nav a,
+      nav button:hover {
+        background: #245643;
+      }
+      aside p {
+        margin: auto 0 0;
+        border-top: 1px solid #426153;
+        padding-top: 14px;
+      }
+      main {
+        min-width: 0;
+        width: 100%;
+        max-width: 1530px;
+        margin: 0 auto;
+        padding: 26px clamp(17px, 3.3vw, 48px) 42px;
+      }
+      .top,
+      .heading,
+      .panel-head,
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .top {
+        padding-bottom: 17px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .top label {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .top select {
+        max-width: 174px;
+      }
+      .heading {
+        margin: 26px 0 21px;
+        align-items: end;
+      }
+      .heading h1 {
+        margin: 0;
+        font-size: clamp(32px, 4vw, 46px);
+        line-height: 1.05;
+        letter-spacing: -0.055em;
+      }
+      .heading p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+      h2 {
+        margin: 0;
+        font-size: 21px;
+        letter-spacing: -0.025em;
+      }
+      h3 {
+        font-size: 16px;
+        margin: 0 0 9px;
+      }
+      .button {
+        border: 1px solid #c6d6cc;
+        background: white;
+        color: #172921;
+        padding: 9px 13px;
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .button:hover {
+        background: #e9f3ed;
+      }
+      .primary {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+      }
+      .primary:hover {
+        background: #094d39;
+      }
+      .small {
+        min-height: 34px;
+        padding: 5px 9px;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 11px;
+        margin-bottom: 20px;
+      }
+      .metric,
+      .panel {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        min-width: 0;
+      }
+      .metric {
+        padding: 14px;
+      }
+      .metric:first-child {
+        background: #e3f3e9;
+        border-color: #c4e5d2;
+      }
+      .metric span {
+        display: block;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 650;
+      }
+      .metric strong {
+        display: block;
+        font-size: 31px;
+        margin-top: 4px;
+      }
+      .metric:nth-child(3) strong {
+        color: #913627;
+      }
+      .panel-head {
+        padding: 17px;
+      }
+      .sub {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .filters {
+        padding: 0 17px 15px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr auto;
+        gap: 8px;
+        align-items: end;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 650;
+        min-width: 0;
+      }
+      label span {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-width: 0;
+        border: 1px solid #b7c9be;
+        color: #172921;
+        border-radius: 8px;
+        background: white;
+        padding: 9px 10px;
+        font-size: 14px;
+        min-height: 40px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 83px;
+      }
+      .columns,
+      .row {
+        display: grid;
+        grid-template-columns: minmax(140px, 1.6fr) minmax(93px, 1fr) minmax(
+            82px,
+            0.85fr
+          ) minmax(94px, 1fr) minmax(84px, 0.85fr) 62px;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 17px;
+      }
+      .columns {
+        background: #eef5f0;
+        color: #455a50;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .row {
+        border-bottom: 1px solid #e9efeb;
+        font-size: 14px;
+        min-height: 66px;
+      }
+      .row:last-child {
+        border-bottom: 0;
+      }
+      .row:hover {
+        background: #f7fbf8;
+      }
+      .row div,
+      .row time {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .ticket {
+        font-size: 13px;
+        color: var(--green);
+        font-weight: 750;
+      }
+      .client {
+        font-weight: 700;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 7px;
+        border-radius: 7px;
+        background: #edf2ef;
+        color: #304e40;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+      .warn {
+        background: #fff2c7;
+        color: #644200;
+      }
+      .near {
+        background: #ffe9d8;
+        color: #793405;
+      }
+      .risk {
+        background: #fde8e4;
+        color: #8f2b20;
+      }
+      .success {
+        background: #dff2e6;
+        color: #145a3f;
+      }
+      .new {
+        background: #e3effc;
+        color: #1f4a73;
+      }
+      .empty {
+        text-align: center;
+        padding: 28px;
+        color: var(--muted);
+      }
+      .empty button {
+        margin-top: 10px;
+      }
+      dialog {
+        width: min(650px, calc(100% - 24px));
+        max-height: calc(100dvh - 24px);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 0;
+        color: #172921;
+        box-shadow: 0 20px 65px #0b2c2455;
+      }
+      dialog::backdrop {
+        background: #0e281fa8;
+      }
+      .dialog-head {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 17px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      .dialog-body {
+        padding: 17px 20px;
+      }
+      .fields,
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .wide {
+        grid-column: 1/-1;
+      }
+      .actions {
+        justify-content: flex-end;
+        margin-top: 15px;
+      }
+      .message {
+        color: #8f2b20;
+        font-size: 14px;
+      }
+      .message:empty {
+        display: none;
+      }
+      .detail-grid {
+        margin: 0;
+      }
+      .detail-grid dt {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .detail-grid dd {
+        margin: 3px 0 0;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+      .section {
+        border-top: 1px solid var(--line);
+        margin-top: 15px;
+        padding-top: 15px;
+      }
+      .history {
+        padding-left: 21px;
+        margin: 0;
+      }
+      .history li {
+        padding: 6px 0;
+        overflow-wrap: anywhere;
+      }
+      .history p {
+        margin: 5px 0 0;
+        white-space: pre-wrap;
+      }
+      .file-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .toast {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        max-width: calc(100% - 32px);
+        padding: 10px 13px;
+        background: var(--dark);
+        color: #fff;
+        border-radius: 9px;
+        z-index: 2;
+      }
+      .toast:empty {
+        display: none;
+      }
+      @media (max-width: 1150px) {
+        .layout {
+          grid-template-columns: 180px minmax(0, 1fr);
+        }
+        .columns,
+        .row {
+          grid-template-columns: minmax(128px, 1.5fr) minmax(90px, 1fr) minmax(
+              80px,
+              0.85fr
+            ) minmax(90px, 1fr) 62px;
+        }
+        .received {
+          display: none;
+        }
+      }
+      @media (max-width: 860px) {
+        .layout {
+          display: block;
+        }
+        aside {
+          padding: 11px 16px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+        }
+        aside p {
+          display: none;
+        }
+        nav {
+          display: flex;
+          gap: 2px;
+        }
+        nav a,
+        nav button {
+          padding: 8px;
+        }
+        main {
+          padding-top: 16px;
+        }
+      }
+      @media (max-width: 630px) {
+        main {
+          padding-inline: 12px;
+        }
+        .brand small {
+          display: none;
+        }
+        .mark {
+          width: 30px;
+          height: 30px;
+          font-size: 20px;
+        }
+        .brand {
+          font-size: 14px;
+          gap: 6px;
+        }
+        .top label {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .heading {
+          margin: 19px 0 14px;
+        }
+        .metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+          margin-bottom: 14px;
+        }
+        .metric {
+          padding: 10px;
+        }
+        .metric strong {
+          font-size: 23px;
+        }
+        .filters {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding-inline: 11px;
+        }
+        .find {
+          grid-column: 1/-1;
+        }
+        .filters button {
+          justify-self: start;
+        }
+        .panel-head {
+          padding-inline: 11px;
+        }
+        .columns {
+          display: none;
+        }
+        .row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 6px 9px;
+          padding: 11px;
+          border-top: 1px solid #e9efeb;
+          border-bottom: 0;
+        }
+        .identity {
+          grid-column: 1/-1;
+        }
+        .row button {
+          justify-self: end;
+        }
+        .dialog-body,
+        .dialog-head {
+          padding: 13px;
+        }
+        .fields {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside>
+        <div class="brand">
+          <span class="mark" aria-hidden="true">✦</span>
+          <div>Comercial Aurora<small>Servicio al cliente</small></div>
+        </div>
+        <nav aria-label="Navegación principal">
+          <a href="#bandeja" aria-current="page">Bandeja</a
+          ><button type="button" id="openFiles">Archivos</button>
+        </nav>
+        <p>Sesión local</p>
+      </aside>
+      <main id="bandeja">
+        <div class="top">
+          <span>Atención al cliente</span
+          ><label for="actor"
+            >Usuario de la sesión
+            <select id="actor"></select
+          ></label>
+        </div>
+        <header class="heading">
+          <div>
+            <h1>Solicitudes</h1>
+            <p>Radicación y seguimiento de casos de clientes.</p>
+          </div>
+          <button type="button" class="button primary" id="openCreate">
+            ＋ Nueva solicitud
+          </button>
+        </header>
+        <section class="metrics" aria-label="Resumen de solicitudes">
+          <div class="metric">
+            <span>Solicitudes</span><strong id="total">0</strong>
+          </div>
+          <div class="metric">
+            <span>En atención</span><strong id="openTotal">0</strong>
+          </div>
+          <div class="metric">
+            <span>Activas con 48 h o más</span><strong id="riskTotal">0</strong>
+          </div>
+          <div class="metric">
+            <span>Atendidas en el plazo</span
+            ><strong id="onTimeTotal">0</strong>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="queueTitle">
+          <div class="panel-head">
+            <h2 id="queueTitle">Bandeja de solicitudes</h2>
+            <span class="sub" id="count" aria-live="polite"></span>
+          </div>
+          <div class="filters">
+            <label class="find"
+              ><span>Buscar</span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Ticket, NIT o razón social"
+            /></label>
+            <label
+              ><span>Estado</span
+              ><select id="stateFilter">
+                <option value="">Todos los estados</option>
+              </select></label
+            >
+            <label
+              ><span>Responsable</span
+              ><select id="agentFilter">
+                <option value="">Todos los agentes</option>
+              </select></label
+            >
+            <button type="button" class="button" id="clearFilters">
+              Limpiar
+            </button>
+          </div>
+          <div class="columns" aria-hidden="true">
+            <span>Ticket y cliente</span><span>Estado</span
+            ><span>Responsable</span><span>Plazo</span
+            ><span class="received">Recepción</span><span>Detalle</span>
+          </div>
+          <div id="rows" role="list" aria-label="Solicitudes encontradas"></div>
+          <div id="empty" hidden class="empty">
+            No hay solicitudes que coincidan con la búsqueda.<br /><button
+              type="button"
+              class="button small"
+              id="clearEmpty"
+            >
+              Limpiar filtros
+            </button>
+          </div>
+        </section>
+        <p class="sub">
+          Los cambios se mantienen durante esta sesión. Usa Archivos para
+          guardar un respaldo JSON.
+        </p>
+      </main>
+    </div>
+    <dialog id="create" aria-labelledby="createTitle">
+      <div class="dialog-head">
+        <h2 id="createTitle">Nueva solicitud</h2>
+        <button type="button" class="button small" data-close>Cerrar</button>
+      </div>
+      <form id="createForm" class="dialog-body" novalidate>
+        <div class="fields">
+          <label class="wide"
+            ><span>NIT del cliente *</span
+            ><input
+              name="nit"
+              id="nit"
+              list="clients"
+              autocomplete="off"
+              required
+              aria-describedby="clientName createError" /><datalist
+              id="clients"
+            ></datalist
+            ><small id="clientName" class="sub"></small
+          ></label>
+          <label
+            ><span>Canal *</span
+            ><select name="channel" id="channel" required>
+              <option value="">Selecciona un canal</option>
+            </select></label
+          >
+          <label
+            ><span>Tipo de solicitud *</span
+            ><select name="type" id="type" required>
+              <option value="">Selecciona un tipo</option>
+            </select></label
+          >
+          <label class="wide"
+            ><span>Pedido ERP (opcional)</span><input name="order"
+          /></label>
+          <label class="wide"
+            ><span>Descripción (opcional)</span
+            ><textarea
+              name="description"
+              placeholder="Si la ingresas, usa al menos 10 caracteres."
+            ></textarea>
+          </label>
+        </div>
+        <p class="message" id="createError" role="alert"></p>
+        <div class="actions">
+          <button type="button" class="button" data-close>Cancelar</button
+          ><button type="submit" class="button primary">
+            Guardar solicitud
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="detail" aria-labelledby="detailTitle">
+      <div class="dialog-head">
+        <div>
+          <h2 id="detailTitle">Detalle</h2>
+          <span class="sub" id="detailTicket"></span>
+        </div>
+        <button type="button" class="button small" data-close>Cerrar</button>
+      </div>
+      <div class="dialog-body">
+        <dl class="detail-grid" id="detailFields"></dl>
+        <form class="section" id="stateForm" novalidate>
+          <h3>Actualizar estado</h3>
+          <div class="fields">
+            <label
+              ><span>Nuevo estado</span
+              ><select name="state" id="nextState"></select
+            ></label>
+            <label class="wide"
+              ><span id="noteLabel">Comentario (opcional)</span
+              ><textarea
+                name="note"
+                id="note"
+                aria-describedby="stateError"
+              ></textarea>
+            </label>
+          </div>
+          <p id="stateError" class="message" role="alert"></p>
+          <div class="actions">
+            <button type="submit" class="button primary">Guardar cambio</button>
+          </div>
+        </form>
+        <section class="section">
+          <h3>Historial</h3>
+          <ol id="history" class="history"></ol>
+        </section>
+      </div>
+    </dialog>
+    <dialog id="files" aria-labelledby="filesTitle">
+      <div class="dialog-head">
+        <h2 id="filesTitle">Archivos</h2>
+        <button type="button" class="button small" data-close>Cerrar</button>
+      </div>
+      <div class="dialog-body">
+        <h3>Directorio de clientes</h3>
+        <div class="sub">
+          CSV con encabezados <code>nit,nombre</code> o arreglo JSON con los
+          mismos campos. Usa texto para el NIT.
+        </div>
+        <div class="file-actions">
+          <button type="button" class="button" id="chooseClients">
+            Importar clientes</button
+          ><input
+            hidden
+            type="file"
+            id="clientFile"
+            accept=".csv,.json,text/csv,application/json"
+          />
+        </div>
+        <section class="section">
+          <h3>Respaldo de sesión</h3>
+          <div class="file-actions">
+            <button type="button" class="button" id="download">
+              Exportar respaldo JSON</button
+            ><button type="button" class="button" id="chooseBackup">
+              Cargar respaldo JSON</button
+            ><input
+              hidden
+              type="file"
+              id="backupFile"
+              accept=".json,application/json"
+            />
+          </div>
+        </section>
+        <p id="fileError" class="message" role="alert"></p>
+        <p id="fileStatus" class="sub" role="status"></p>
+      </div>
+    </dialog>
+    <dialog id="restore" aria-labelledby="restoreTitle">
+      <div class="dialog-head">
+        <h2 id="restoreTitle">¿Sustituir la sesión?</h2>
+      </div>
+      <div class="dialog-body">
+        <p id="restoreSummary"></p>
+        <div class="actions">
+          <button type="button" class="button" data-close autofocus>
+            Cancelar</button
+          ><button type="button" class="button primary" id="confirmRestore">
+            Restaurar sesión
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+    <script>
+      "use strict";
+
+      const HOUR = 3600000;
+      const ZONE = "America/Bogota";
+      const STATES = Object.freeze({
+        Nuevo: "Nuevo",
+        En_Proceso: "En proceso",
+        Pendiente_Logistica: "Pendiente de logística",
+        Pendiente_Ventas: "Pendiente de ventas",
+        Resuelto: "Resuelto",
+        Cerrado: "Cerrado",
+      });
+      const ACTIVE = [
+        "Nuevo",
+        "En_Proceso",
+        "Pendiente_Logistica",
+        "Pendiente_Ventas",
+      ];
+      const CHANNELS = Object.freeze({
+        Mensajeria: "Mensajería",
+        Correo_Electronico: "Correo electrónico",
+        Llamada_Telefonica: "Llamada telefónica",
+      });
+      const TYPES = Object.freeze({
+        Consulta_Stock: "Consulta de stock",
+        Estado_Pedido: "Estado del pedido",
+        Inconformidad_Envio: "Inconformidad con envío",
+        Facturacion_Cobro: "Facturación y cobro",
+        Devolucion: "Devolución",
+      });
+      const ALERTS = [
+        ["24–36 h", "warn"],
+        ["36–48 h", "near"],
+        ["48 h o más", "risk"],
+      ];
+      const monthFormat = new Intl.DateTimeFormat("en", {
+        timeZone: ZONE,
+        year: "numeric",
+        month: "2-digit",
+      });
+      const dateFormat = new Intl.DateTimeFormat("es-CO", {
+        timeZone: ZONE,
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+      const shortDate = new Intl.DateTimeFormat("es-CO", {
+        timeZone: ZONE,
+        day: "numeric",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+      const durationFormat = new Intl.NumberFormat("es-CO", {
+        maximumFractionDigits: 2,
+      });
+      const iso = (time) => new Date(time).toISOString();
+      const monthOf = (time) =>
+        monthFormat
+          .formatToParts(time)
+          .filter((part) => part.type === "year" || part.type === "month")
+          .reduce((parts, part) => ({ ...parts, [part.type]: part.value }), {});
+      const isText = (value) => typeof value === "string";
+      const nonempty = (value) => isText(value) && value.trim().length > 0;
+      const own = (table, value) =>
+        isText(value) && Object.hasOwn(table, value);
+      const record = (value) =>
+        value !== null && typeof value === "object" && !Array.isArray(value);
+      const label = (table, key) => table[key];
+      const need = (condition, message) => {
+        if (!condition) throw new Error(message);
+      };
+
+      function nextStates(current) {
+        if (ACTIVE.includes(current))
+          return [...ACTIVE.filter((state) => state !== current), "Resuelto"];
+        return current === "Resuelto" ? ["Cerrado"] : [];
+      }
+
+      function alertIndex(ticket, now) {
+        if (!ACTIVE.includes(ticket.estado_solicitud)) return -1;
+        const elapsed = now - Date.parse(ticket.fecha_hora_recepcion);
+        if (elapsed >= 48 * HOUR) return 2;
+        if (elapsed >= 36 * HOUR) return 1;
+        if (elapsed >= 24 * HOUR) return 0;
+        return -1;
+      }
+
+      function addTicket(session, fields, actor, now = Date.now()) {
+        const client = session.clientes.find(
+          (entry) => entry.nit === fields.nit.trim(),
+        );
+        const description = fields.description.trim();
+        need(client, "NIT del cliente: selecciona un NIT del directorio.");
+        need(
+          own(CHANNELS, fields.channel),
+          "Canal: selecciona un canal del catálogo.",
+        );
+        need(
+          own(TYPES, fields.type),
+          "Tipo de solicitud: selecciona un tipo del catálogo.",
+        );
+        need(
+          !description || description.length >= 10,
+          "Descripción: ingresa al menos 10 caracteres o déjala vacía.",
+        );
+        need(
+          session.usuarios.some((user) => user.id === actor),
+          "Usuario de la sesión: selecciona un usuario.",
+        );
+        const month = monthOf(now);
+        const period = month.year + month.month;
+        const sequence = (session.consecutivos[period] ?? 0) + 1;
+        need(
+          sequence <= 9999,
+          "Se agotó el consecutivo de cuatro dígitos para este mes.",
+        );
+        const agent = session.usuarios[session.siguiente_turno];
+        const ticket = {
+          ticket_id: "AUR-" + period + "-" + String(sequence).padStart(4, "0"),
+          fecha_hora_recepcion: iso(now),
+          canal_origen: fields.channel,
+          cliente_nit: client.nit,
+          cliente_nombre: client.nombre,
+          pedido_erp_id: fields.order.trim() || null,
+          tipo_solicitud: fields.type,
+          descripcion_detallada: description,
+          agente_responsable_id: agent.id,
+          estado_solicitud: "Nuevo",
+          fecha_hora_resolucion: null,
+          tiempo_atencion_horas: null,
+          cumple_sla_48h: null,
+        };
+        const event = eventFor(
+          ticket,
+          1,
+          actor,
+          "Registro",
+          "",
+          "Nuevo",
+          "",
+          now,
+        );
+        session.solicitudes.push(ticket);
+        session.historial.push(event);
+        session.consecutivos[period] = sequence;
+        session.siguiente_turno =
+          (session.siguiente_turno + 1) % session.usuarios.length;
+        return ticket;
+      }
+
+      function eventFor(
+        ticket,
+        number,
+        actor,
+        action,
+        previous,
+        next,
+        note,
+        now,
+      ) {
+        return {
+          evento_id: ticket.ticket_id + "-E" + number,
+          ticket_id: ticket.ticket_id,
+          timestamp: iso(now),
+          usuario_id: actor,
+          accion: action,
+          estado_anterior: previous,
+          estado_nuevo: next,
+          comentarios: note,
+        };
+      }
+
+      function changeState(
+        session,
+        ticket,
+        next,
+        note,
+        actor,
+        now = Date.now(),
+      ) {
+        need(
+          nextStates(ticket.estado_solicitud).includes(next),
+          "Nuevo estado: selecciona una transición disponible.",
+        );
+        need(
+          session.usuarios.some((user) => user.id === actor),
+          "Usuario de la sesión: selecciona un usuario.",
+        );
+        note = note.trim();
+        need(
+          next !== "Resuelto" || note,
+          "Respuesta de fondo: escribe la respuesta de la solicitud.",
+        );
+        const events = session.historial.filter(
+          (event) => event.ticket_id === ticket.ticket_id,
+        );
+        const elapsed = now - Date.parse(ticket.fecha_hora_recepcion);
+        need(
+          elapsed >= 0,
+          "El reloj del dispositivo indica una hora anterior a la recepción. Corrígelo antes de continuar.",
+        );
+        need(
+          now >= Date.parse(events.at(-1).timestamp),
+          "El reloj del dispositivo indica una hora anterior al último evento. Corrígelo antes de continuar.",
+        );
+        const event = eventFor(
+          ticket,
+          events.length + 1,
+          actor,
+          "Cambio de estado",
+          ticket.estado_solicitud,
+          next,
+          note,
+          now,
+        );
+        if (next === "Resuelto") {
+          ticket.fecha_hora_resolucion = event.timestamp;
+          ticket.tiempo_atencion_horas = elapsed / HOUR;
+          ticket.cumple_sla_48h = elapsed <= 48 * HOUR;
+        }
+        ticket.estado_solicitud = next;
+        session.historial.push(event);
+      }
+
+      function demoSession(now = Date.now()) {
+        const session = {
+          version: 1,
+          clientes: [
+            ["900123456", "Colegio Los Almendros"],
+            ["800987654", "Papelería Horizonte"],
+            ["901248503", "Estudio Níspero"],
+            ["901472680", "Colegio Monte Claro"],
+            ["900513772", "Oficinas del Parque"],
+            ["901123804", "Fundación La Ceiba"],
+            ["900471992", "Grupo Arrayán"],
+            ["901852477", "Academia Senderos"],
+          ].map(([nit, nombre]) => ({ nit, nombre })),
+          usuarios: [
+            "Laura Gómez",
+            "Mateo Ruiz",
+            "Valentina Ríos",
+            "Daniel Torres",
+          ].map((nombre, index) => ({
+            id: "Agente_0" + (index + 1),
+            nombre,
+          })),
+          solicitudes: [],
+          historial: [],
+          consecutivos: {},
+          siguiente_turno: 0,
+        };
+        const examples = [
+          [
+            76,
+            "Cerrado",
+            "Facturacion_Cobro",
+            "Correo_Electronico",
+            "Confirmación de la factura enviada.",
+            15,
+          ],
+          [
+            67,
+            "Resuelto",
+            "Devolucion",
+            "Mensajeria",
+            "Solicitar recolección del material repetido.",
+            52,
+          ],
+          [
+            54,
+            "Pendiente_Logistica",
+            "Inconformidad_Envio",
+            "Llamada_Telefonica",
+            "La entrega llegó con dos cajas faltantes.",
+          ],
+          [
+            42,
+            "En_Proceso",
+            "Estado_Pedido",
+            "Correo_Electronico",
+            "Consulta por el estado de un pedido de resmas.",
+          ],
+          [
+            29,
+            "Pendiente_Ventas",
+            "Consulta_Stock",
+            "Mensajeria",
+            "Confirmar disponibilidad de marcadores y carpetas.",
+          ],
+          [
+            12,
+            "Nuevo",
+            "Facturacion_Cobro",
+            "Llamada_Telefonica",
+            "Actualizar el correo para recibir la factura.",
+          ],
+          [
+            4,
+            "Nuevo",
+            "Estado_Pedido",
+            "Mensajeria",
+            "Validar la fecha estimada de entrega.",
+          ],
+          [
+            1,
+            "Nuevo",
+            "Consulta_Stock",
+            "Correo_Electronico",
+            "Consultar stock de papel tamaño oficio.",
+          ],
+        ];
+        for (const [
+          index,
+          [age, state, type, channel, description, resolution],
+        ] of examples.entries()) {
+          const received = now - age * HOUR;
+          const actor = session.usuarios[(index + 1) % 4].id;
+          const ticket = addTicket(
+            session,
+            {
+              nit: session.clientes[index].nit,
+              channel,
+              type,
+              description,
+              order: "",
+            },
+            actor,
+            received,
+          );
+          const agent = ticket.agente_responsable_id;
+          if (resolution !== undefined) {
+            changeState(
+              session,
+              ticket,
+              "Resuelto",
+              "Confirmamos la atención y enviamos la respuesta al cliente.",
+              agent,
+              received + resolution * HOUR,
+            );
+            if (state === "Cerrado")
+              changeState(
+                session,
+                ticket,
+                state,
+                "El cliente confirmó la respuesta.",
+                agent,
+                received + (resolution + 1) * HOUR,
+              );
+          } else if (state !== "Nuevo") {
+            changeState(
+              session,
+              ticket,
+              state,
+              "Se inició la gestión con el área responsable.",
+              agent,
+              received + HOUR,
+            );
+          }
+        }
+        return session;
+      }
+
+      function parseCsv(source) {
+        const rows = [];
+        let row = [],
+          cell = "",
+          quoted = false,
+          closed = false;
+        const endCell = () => {
+          row.push(cell);
+          cell = "";
+          closed = false;
+        };
+        const endRow = () => {
+          endCell();
+          if (row.length > 1 || row[0].trim()) rows.push(row);
+          row = [];
+        };
+        for (let index = 0; index < source.length; index += 1) {
+          const char = source[index];
+          if (quoted) {
+            if (char !== '"') cell += char;
+            else if (source[index + 1] === '"') {
+              cell += '"';
+              index += 1;
+            } else {
+              quoted = false;
+              closed = true;
+            }
+          } else if (char === ",") endCell();
+          else if (char === "\n" || char === "\r") {
+            endRow();
+            if (char === "\r" && source[index + 1] === "\n") index += 1;
+          } else {
+            need(
+              !closed,
+              "CSV: hay texto después del cierre de un campo entre comillas.",
+            );
+            if (char === '"') {
+              need(!cell, "CSV: hay comillas en una posición inválida.");
+              quoted = true;
+            } else cell += char;
+          }
+        }
+        need(!quoted, "CSV: hay un campo sin comillas de cierre.");
+        endRow();
+        const headers = rows.shift()?.map((header) => header.trim()) ?? [];
+        const nit = headers.indexOf("nit"),
+          name = headers.indexOf("nombre");
+        need(
+          nit >= 0 && name >= 0 && new Set(headers).size === headers.length,
+          "CSV: se requieren los encabezados únicos nit y nombre.",
+        );
+        return rows.map((fields, index) => {
+          need(
+            fields.length === headers.length,
+            "CSV: número de campos incorrecto en el registro " +
+              (index + 1) +
+              ".",
+          );
+          return { nit: fields[nit], nombre: fields[name] };
+        });
+      }
+
+      function parseJson(source) {
+        try {
+          return JSON.parse(source);
+        } catch {
+          throw new Error("El archivo no contiene JSON válido.");
+        }
+      }
+
+      function checkedClients(values) {
+        need(
+          Array.isArray(values),
+          "El directorio debe contener un arreglo de clientes.",
+        );
+        const entries = new Map();
+        for (const [index, entry] of values.entries()) {
+          need(
+            record(entry) && nonempty(entry.nit) && nonempty(entry.nombre),
+            "Cliente " +
+              (index + 1) +
+              ": nit y nombre deben ser textos no vacíos.",
+          );
+          const nit = entry.nit.trim();
+          need(!entries.has(nit), "NIT duplicado en el archivo: " + nit + ".");
+          entries.set(nit, { nit, nombre: entry.nombre.trim() });
+        }
+        return entries;
+      }
+
+      function importClients(session, text, csv) {
+        const source = text.replace(/^\uFEFF/, "");
+        const incoming = checkedClients(
+          csv ? parseCsv(source) : parseJson(source),
+        );
+        need(incoming.size, "El archivo no contiene clientes.");
+        const directory = new Map(
+          session.clientes.map((client) => [client.nit, client]),
+        );
+        for (const [nit, client] of incoming) directory.set(nit, client);
+        session.clientes = [...directory.values()];
+        return incoming.size;
+      }
+
+      function readInstant(value) {
+        if (!isText(value)) return NaN;
+        const time = Date.parse(value);
+        return Number.isFinite(time) && iso(time) === value ? time : NaN;
+      }
+
+      function validateBackup(text) {
+        const data = parseJson(text.replace(/^\uFEFF/, ""));
+        need(
+          record(data) && data.version === 1,
+          "El respaldo tiene un formato o una versión incompatible.",
+        );
+        const directory = checkedClients(data.clientes);
+        need(
+          Array.isArray(data.usuarios) && data.usuarios.length === 4,
+          "El respaldo debe contener cuatro agentes.",
+        );
+        const users = new Set();
+        for (const user of data.usuarios) {
+          need(
+            record(user) &&
+              nonempty(user.id) &&
+              nonempty(user.nombre) &&
+              !users.has(user.id),
+            "El respaldo contiene un agente inválido o duplicado.",
+          );
+          users.add(user.id);
+        }
+        need(
+          Array.isArray(data.solicitudes) &&
+            Array.isArray(data.historial) &&
+            record(data.consecutivos),
+          "El respaldo debe incluir solicitudes, historial y consecutivos.",
+        );
+        for (const [period, sequence] of Object.entries(data.consecutivos)) {
+          need(
+            /^\d{4}(0[1-9]|1[0-2])$/.test(period) &&
+              Number.isInteger(sequence) &&
+              sequence >= 0 &&
+              sequence <= 9999,
+            "El respaldo contiene un consecutivo mensual inválido.",
+          );
+        }
+        need(
+          Number.isInteger(data.siguiente_turno) &&
+            data.siguiente_turno >= 0 &&
+            data.siguiente_turno < users.size,
+          "El respaldo contiene una posición inválida de la rotación.",
+        );
+        const tickets = new Map();
+        for (const ticket of data.solicitudes) {
+          need(
+            record(ticket) && isText(ticket.ticket_id),
+            "El respaldo contiene una solicitud inválida.",
+          );
+          const id = ticket.ticket_id;
+          const match = /^AUR-(\d{6})-(\d{4})$/.exec(id);
+          const received = readInstant(ticket.fecha_hora_recepcion);
+          need(
+            match && Number.isFinite(received) && Number(match[2]) > 0,
+            "Ticket o fecha de recepción inválidos: " + id + ".",
+          );
+          const month = monthOf(received);
+          need(
+            match[1] === month.year + month.month &&
+              data.consecutivos[match[1]] >= Number(match[2]),
+            "Consecutivo o mes incoherente para " + id + ".",
+          );
+          need(!tickets.has(id), "Ticket duplicado: " + id + ".");
+          need(
+            directory.has(ticket.cliente_nit) &&
+              nonempty(ticket.cliente_nombre),
+            "Cliente inválido en " + id + ".",
+          );
+          need(
+            users.has(ticket.agente_responsable_id),
+            "Agente inexistente en " + id + ".",
+          );
+          need(
+            own(CHANNELS, ticket.canal_origen) &&
+              own(TYPES, ticket.tipo_solicitud) &&
+              own(STATES, ticket.estado_solicitud),
+            "Canal, tipo o estado inválido en " + id + ".",
+          );
+          need(
+            (ticket.pedido_erp_id === null || nonempty(ticket.pedido_erp_id)) &&
+              isText(ticket.descripcion_detallada) &&
+              (!ticket.descripcion_detallada.trim() ||
+                ticket.descripcion_detallada.trim().length >= 10),
+            "Descripción o pedido inválido en " + id + ".",
+          );
+          if (ACTIVE.includes(ticket.estado_solicitud)) {
+            need(
+              ticket.fecha_hora_resolucion === null &&
+                ticket.tiempo_atencion_horas === null &&
+                ticket.cumple_sla_48h === null,
+              "La resolución de " + id + " no corresponde a su estado.",
+            );
+          } else {
+            const elapsed =
+              readInstant(ticket.fecha_hora_resolucion) - received;
+            need(
+              elapsed >= 0 &&
+                ticket.tiempo_atencion_horas === elapsed / HOUR &&
+                ticket.cumple_sla_48h === elapsed <= 48 * HOUR,
+              "El cálculo del plazo no coincide con las fechas de " + id + ".",
+            );
+          }
+          tickets.set(id, { ticket, last: null, eventCount: 0 });
+        }
+        const eventIds = new Set();
+        for (const event of data.historial) {
+          need(
+            record(event) &&
+              nonempty(event.evento_id) &&
+              !eventIds.has(event.evento_id),
+            "El historial contiene un evento inválido o duplicado.",
+          );
+          const entry = tickets.get(event.ticket_id);
+          const timestamp = readInstant(event.timestamp);
+          need(
+            entry &&
+              users.has(event.usuario_id) &&
+              Number.isFinite(timestamp) &&
+              isText(event.comentarios),
+            "El historial contiene referencias, fechas o comentarios inválidos.",
+          );
+          const { ticket, last } = entry;
+          need(
+            event.evento_id === event.ticket_id + "-E" + (entry.eventCount + 1),
+            "El historial contiene un identificador fuera de secuencia en " +
+              event.ticket_id +
+              ".",
+          );
+          if (last) {
+            need(
+              timestamp >= Date.parse(last.timestamp) &&
+                event.estado_anterior === last.estado_nuevo &&
+                event.accion === "Cambio de estado" &&
+                nextStates(last.estado_nuevo).includes(event.estado_nuevo),
+              "La secuencia del historial no es válida en " +
+                event.ticket_id +
+                ".",
+            );
+            if (event.estado_nuevo === "Resuelto") {
+              need(
+                event.timestamp === ticket.fecha_hora_resolucion &&
+                  nonempty(event.comentarios),
+                "El evento de resolución es inválido en " +
+                  event.ticket_id +
+                  ".",
+              );
+            }
+          } else {
+            need(
+              event.timestamp === ticket.fecha_hora_recepcion &&
+                event.accion === "Registro" &&
+                event.estado_anterior === "" &&
+                event.estado_nuevo === "Nuevo",
+              "Falta un registro inicial válido en " + event.ticket_id + ".",
+            );
+          }
+          eventIds.add(event.evento_id);
+          entry.last = event;
+          entry.eventCount += 1;
+        }
+        for (const { ticket, last } of tickets.values()) {
+          need(
+            last?.estado_nuevo === ticket.estado_solicitud,
+            "El estado y el historial no coinciden en " +
+              ticket.ticket_id +
+              ".",
+          );
+        }
+        data.clientes = [...directory.values()];
+        return data;
+      }
+
+      const $ = (id) => document.getElementById(id);
+      let session = demoSession();
+      let selectedTicket = null;
+      let pendingBackup = null;
+      let toastTimer;
+      let readVersion = 0;
+
+      function element(tag, text = "", className = "") {
+        const node = document.createElement(tag);
+        node.textContent = text;
+        if (className) node.className = className;
+        return node;
+      }
+
+      function fillOptions(select, options, placeholder) {
+        const previous = select.value;
+        const entries = placeholder ? [["", placeholder], ...options] : options;
+        select.replaceChildren(
+          ...entries.map(([value, text]) => new Option(text, value)),
+        );
+        if (entries.some(([value]) => value === previous))
+          select.value = previous;
+      }
+
+      function syncDirectory() {
+        const clients = session.clientes.map(
+          (client) => new Option(client.nombre, client.nit),
+        );
+        $("clients").replaceChildren(...clients);
+        const users = session.usuarios.map((user) => [user.id, user.nombre]);
+        fillOptions($("actor"), users);
+        fillOptions($("agentFilter"), users, "Todos los agentes");
+        showClientName();
+      }
+
+      const searchKey = (value) =>
+        value
+          .toLocaleLowerCase("es-CO")
+          .normalize("NFD")
+          .replace(/\p{M}/gu, "");
+      const userName = (id) =>
+        session.usuarios.find((user) => user.id === id)?.nombre ?? id;
+
+      function setSla(node, ticket, now) {
+        const index = alertIndex(ticket, now);
+        let text = "—",
+          style = "";
+        if (index >= 0) [text, style] = ALERTS[index];
+        else if (ticket.cumple_sla_48h !== null) {
+          [text, style] = ticket.cumple_sla_48h
+            ? ["En el plazo", "success"]
+            : ["Fuera del plazo", "risk"];
+        }
+        node.textContent = text;
+        node.className = style ? "badge " + style : "sub";
+        node.dataset.alert = index;
+      }
+
+      function renderQueue() {
+        const query = searchKey($("search").value.trim());
+        const filterState = $("stateFilter").value,
+          filterAgent = $("agentFilter").value;
+        const matching = session.solicitudes
+          .filter(
+            (ticket) =>
+              (!filterState || ticket.estado_solicitud === filterState) &&
+              (!filterAgent || ticket.agente_responsable_id === filterAgent) &&
+              (!query ||
+                [
+                  ticket.ticket_id,
+                  ticket.cliente_nit,
+                  ticket.cliente_nombre,
+                ].some((text) => searchKey(text).includes(query))),
+          )
+          .sort(
+            (a, b) =>
+              b.fecha_hora_recepcion.localeCompare(a.fecha_hora_recepcion) ||
+              b.ticket_id.localeCompare(a.ticket_id),
+          );
+        const now = Date.now();
+        const fragment = document.createDocumentFragment();
+        for (const ticket of matching) {
+          const row = element("div", "", "row");
+          row.setAttribute("role", "listitem");
+          row.dataset.ticket = ticket.ticket_id;
+          const identity = element("div", "", "identity");
+          identity.append(
+            element("div", ticket.ticket_id, "ticket"),
+            element("div", ticket.cliente_nombre, "client"),
+            element(
+              "div",
+              "NIT " +
+                ticket.cliente_nit +
+                " · " +
+                label(TYPES, ticket.tipo_solicitud),
+              "sub",
+            ),
+          );
+          const state = element("div");
+          const stateClass =
+            ticket.estado_solicitud === "Nuevo"
+              ? " new"
+              : ticket.estado_solicitud === "Resuelto"
+                ? " success"
+                : "";
+          state.append(
+            element(
+              "span",
+              label(STATES, ticket.estado_solicitud),
+              "badge" + stateClass,
+            ),
+          );
+          const sla = element("div");
+          const slaBadge = element("span");
+          slaBadge.dataset.sla = "";
+          setSla(slaBadge, ticket, now);
+          sla.append(slaBadge);
+          const timestamp = element(
+            "time",
+            shortDate.format(Date.parse(ticket.fecha_hora_recepcion)),
+            "received sub",
+          );
+          timestamp.dateTime = ticket.fecha_hora_recepcion;
+          const button = element("button", "Ver", "button small");
+          button.type = "button";
+          button.dataset.openTicket = ticket.ticket_id;
+          button.setAttribute("aria-label", "Ver " + ticket.ticket_id);
+          row.append(
+            identity,
+            state,
+            element("div", userName(ticket.agente_responsable_id)),
+            sla,
+            timestamp,
+            button,
+          );
+          fragment.append(row);
+        }
+        $("rows").replaceChildren(fragment);
+        $("count").textContent =
+          matching.length +
+          (matching.length === 1 ? " solicitud" : " solicitudes");
+        $("empty").hidden = matching.length > 0;
+        refreshIndicators(now);
+      }
+
+      function refreshIndicators(now = Date.now()) {
+        const tickets = session.solicitudes;
+        $("total").textContent = tickets.length;
+        $("openTotal").textContent = tickets.filter((ticket) =>
+          ACTIVE.includes(ticket.estado_solicitud),
+        ).length;
+        $("riskTotal").textContent = tickets.filter(
+          (ticket) => alertIndex(ticket, now) === 2,
+        ).length;
+        $("onTimeTotal").textContent = tickets.filter(
+          (ticket) => ticket.cumple_sla_48h === true,
+        ).length;
+        const byId = new Map(
+          tickets.map((ticket) => [ticket.ticket_id, ticket]),
+        );
+        for (const row of $("rows").children) {
+          const ticket = byId.get(row.dataset.ticket);
+          const badge = row.querySelector("[data-sla]");
+          if (Number(badge.dataset.alert) !== alertIndex(ticket, now))
+            setSla(badge, ticket, now);
+        }
+        const detailSla = $("detailFields").querySelector("[data-sla]");
+        if (
+          $("detail").open &&
+          selectedTicket &&
+          detailSla &&
+          Number(detailSla.dataset.alert) !== alertIndex(selectedTicket, now)
+        ) {
+          setSla(detailSla, selectedTicket, now);
+        }
+      }
+
+      function clearFilters() {
+        $("search").value =
+          $("stateFilter").value =
+          $("agentFilter").value =
+            "";
+        renderQueue();
+      }
+
+      function showClientName() {
+        const client = session.clientes.find(
+          (item) => item.nit === $("nit").value.trim(),
+        );
+        $("clientName").textContent = client?.nombre ?? "";
+      }
+
+      function detailField(term, description, wide = false) {
+        const group = element("div", "", wide ? "wide" : "");
+        const dd = element("dd");
+        dd.append(description);
+        group.append(element("dt", term), dd);
+        return group;
+      }
+
+      function renderDetail() {
+        const ticket = selectedTicket;
+        $("detailTitle").textContent = ticket.cliente_nombre;
+        $("detailTicket").textContent = ticket.ticket_id;
+        const sla = element("span");
+        sla.dataset.sla = "";
+        setSla(sla, ticket, Date.now());
+        const fields = [
+          ["NIT", ticket.cliente_nit],
+          ["Responsable", userName(ticket.agente_responsable_id)],
+          ["Tipo", label(TYPES, ticket.tipo_solicitud)],
+          ["Canal", label(CHANNELS, ticket.canal_origen)],
+          [
+            "Recepción (Bogotá)",
+            dateFormat.format(Date.parse(ticket.fecha_hora_recepcion)),
+          ],
+          ["Estado", label(STATES, ticket.estado_solicitud)],
+          ["Plazo", sla],
+          ["Pedido ERP", ticket.pedido_erp_id ?? "—"],
+        ];
+        if (ticket.fecha_hora_resolucion) {
+          fields.push(
+            [
+              "Resolución (Bogotá)",
+              dateFormat.format(Date.parse(ticket.fecha_hora_resolucion)),
+            ],
+            [
+              "Tiempo de atención",
+              durationFormat.format(ticket.tiempo_atencion_horas) + " h",
+            ],
+          );
+        }
+        fields.push(["Descripción", ticket.descripcion_detallada || "—", true]);
+        $("detailFields").replaceChildren(
+          ...fields.map((args) => detailField(...args)),
+        );
+        const options = nextStates(ticket.estado_solicitud);
+        $("stateForm").hidden = options.length === 0;
+        fillOptions(
+          $("nextState"),
+          options.map((state) => [state, label(STATES, state)]),
+          "Selecciona un estado",
+        );
+        $("stateForm").reset();
+        $("stateError").textContent = "";
+        updateNoteLabel();
+        const events = session.historial.filter(
+          (event) => event.ticket_id === ticket.ticket_id,
+        );
+        $("history").replaceChildren(
+          ...events.map((event) => {
+            const line = element("li");
+            const states = event.estado_anterior
+              ? label(STATES, event.estado_anterior) +
+                " → " +
+                label(STATES, event.estado_nuevo)
+              : label(STATES, event.estado_nuevo);
+            line.append(
+              element("strong", event.accion + " · " + states),
+              element(
+                "div",
+                dateFormat.format(Date.parse(event.timestamp)) +
+                  " · " +
+                  userName(event.usuario_id),
+                "sub",
+              ),
+            );
+            if (event.comentarios) line.append(element("p", event.comentarios));
+            return line;
+          }),
+        );
+      }
+
+      function updateNoteLabel() {
+        $("noteLabel").textContent =
+          $("nextState").value === "Resuelto"
+            ? "Respuesta de fondo *"
+            : "Comentario (opcional)";
+      }
+
+      function notify(message) {
+        $("toast").textContent = message;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          $("toast").textContent = "";
+        }, 5500);
+      }
+
+      function showFileResult(message, error = false) {
+        $("fileError").textContent = error ? message : "";
+        $("fileStatus").textContent = error ? "" : message;
+      }
+
+      async function readFile(input, consume) {
+        const file = input.files[0];
+        if (!file) return;
+        const version = ++readVersion;
+        input.value = "";
+        try {
+          const contents = await file.text();
+          if (version === readVersion) consume(contents, file.name);
+        } catch (error) {
+          if (version === readVersion) showFileResult(error.message, true);
+        }
+      }
+
+      for (const button of document.querySelectorAll("[data-close]")) {
+        button.addEventListener("click", () =>
+          button.closest("dialog").close(),
+        );
+      }
+      $("openCreate").addEventListener("click", () => {
+        $("createError").textContent = "";
+        $("create").showModal();
+        $("nit").focus();
+      });
+      $("createForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fields = Object.fromEntries(new FormData(event.currentTarget));
+        try {
+          const ticket = addTicket(session, fields, $("actor").value);
+          event.currentTarget.reset();
+          showClientName();
+          $("create").close();
+          clearFilters();
+          notify(
+            "Solicitud " +
+              ticket.ticket_id +
+              " guardada. Responsable: " +
+              userName(ticket.agente_responsable_id) +
+              ".",
+          );
+        } catch (error) {
+          $("createError").textContent = error.message;
+        }
+      });
+      $("nit").addEventListener("input", showClientName);
+      $("rows").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-open-ticket]");
+        if (!button) return;
+        selectedTicket = session.solicitudes.find(
+          (ticket) => ticket.ticket_id === button.dataset.openTicket,
+        );
+        renderDetail();
+        $("detail").showModal();
+      });
+      $("nextState").addEventListener("change", updateNoteLabel);
+      $("stateForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        try {
+          changeState(
+            session,
+            selectedTicket,
+            $("nextState").value,
+            $("note").value,
+            $("actor").value,
+          );
+          renderQueue();
+          renderDetail();
+        } catch (error) {
+          $("stateError").textContent = error.message;
+        }
+      });
+      $("search").addEventListener("input", renderQueue);
+      $("stateFilter").addEventListener("change", renderQueue);
+      $("agentFilter").addEventListener("change", renderQueue);
+      $("clearFilters").addEventListener("click", clearFilters);
+      $("clearEmpty").addEventListener("click", () => {
+        clearFilters();
+        $("search").focus();
+      });
+
+      $("openFiles").addEventListener("click", () => {
+        showFileResult("");
+        $("files").showModal();
+      });
+      $("chooseClients").addEventListener("click", () =>
+        $("clientFile").click(),
+      );
+      $("chooseBackup").addEventListener("click", () =>
+        $("backupFile").click(),
+      );
+      $("clientFile").addEventListener("change", () =>
+        readFile($("clientFile"), (contents, name) => {
+          const count = importClients(
+            session,
+            contents,
+            name.toLowerCase().endsWith(".csv"),
+          );
+          syncDirectory();
+          showFileResult(
+            count +
+              (count === 1 ? " cliente importado." : " clientes importados."),
+          );
+        }),
+      );
+      $("backupFile").addEventListener("change", () =>
+        readFile($("backupFile"), (contents) => {
+          pendingBackup = validateBackup(contents);
+          showFileResult("");
+          $("restoreSummary").textContent =
+            "El respaldo contiene " +
+            pendingBackup.solicitudes.length +
+            " solicitudes y " +
+            pendingBackup.clientes.length +
+            " clientes. Restaurarlo reemplaza los datos de la sesión actual.";
+          $("restore").showModal();
+        }),
+      );
+      $("restore").addEventListener("close", () => {
+        pendingBackup = null;
+      });
+      $("confirmRestore").addEventListener("click", () => {
+        if (!pendingBackup) return;
+        session = pendingBackup;
+        pendingBackup = null;
+        selectedTicket = null;
+        syncDirectory();
+        clearFilters();
+        $("restore").close();
+        $("createForm").reset();
+        showClientName();
+        showFileResult(
+          "Sesión restaurada. Los consecutivos y la rotación se conservaron.",
+        );
+      });
+      $("download").addEventListener("click", () => {
+        const file = new Blob([JSON.stringify(session, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(file);
+        const link = element("a");
+        link.href = url;
+        link.download =
+          "aurora-respaldo-" + iso(Date.now()).slice(0, 10) + ".json";
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showFileResult("Respaldo JSON exportado.");
+      });
+
+      fillOptions(
+        $("channel"),
+        Object.entries(CHANNELS),
+        "Selecciona un canal",
+      );
+      fillOptions($("type"), Object.entries(TYPES), "Selecciona un tipo");
+      fillOptions(
+        $("stateFilter"),
+        Object.entries(STATES),
+        "Todos los estados",
+      );
+      syncDirectory();
+      renderQueue();
+      window.addEventListener("focus", () => refreshIndicators());
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) refreshIndicators();
+      });
+      setInterval(() => refreshIndicators(), 1000);
+    </script>
+  </body>
+</html>
